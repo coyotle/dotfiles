@@ -1,0 +1,89 @@
+alias sudo='sudo '
+
+alias sys='systemctl'
+
+alias k="kubectl"
+alias v='nvim'
+alias hx='helix'
+alias c='clear'
+alias help='tldr'
+
+alias rmd='rm -rf'
+alias {up,..}='cd ..'
+alias ...='cd ../..'
+
+alias psa='ps auxf'
+
+# docker compose
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias dcu='docker compose up -d'
+alias dcd='docker compose down'
+alias dcp='docker compose pull'
+alias dim='docker images'
+
+# git
+alias g='git'
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+
+# eza
+alias ls='eza --icons --color=always --group-directories-first'
+alias lt='eza --icons --color=always --group-directories-first -T'
+alias ll='eza -alF --icons --color=always --group-directories-first'
+alias la='eza -a --icons --color=always --group-directories-first'
+alias l='eza -F --icons --color=always --group-directories-first'
+alias l.='eza -a | egrep "^\."'
+
+alias vps='ssh -XY vps1-wg'
+
+# Archives
+function extract {
+  if [ -z "$1" ]; then
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+  else
+    if [ -f $1 ]; then
+      case $1 in
+        *.tar.bz2)   tar xvjf $1    ;;
+        *.tar.gz)    tar xvzf $1    ;;
+        *.tar.xz)    tar xvJf $1    ;;
+        *.lzma)      unlzma $1      ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar x -ad $1 ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xvf $1     ;;
+        *.tbz2)      tar xvjf $1    ;;
+        *.tgz)       tar xvzf $1    ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *.xz)        unxz $1        ;;
+        *.exe)       cabextract $1  ;;
+        *)           echo "extract: '$1' - unknown archive method" ;;
+      esac
+    else
+      echo "$1 - file does not exist"
+    fi
+  fi
+}
+
+alias extr='extract '
+
+# System
+alias df="df -h"
+alias du="du -h"
+
+
+# pacman aliases
+alias pac='pacman -S'   # install
+alias pacu='pacman -Syu'    # update, add 'a' to the list of letters to update AUR packages if you use yaourt
+alias pacr='pacman -Rs'   # remove
+alias pacs='pacman -Ss'      # search
+alias paci='pacman -Si'      # info
+alias paclo='pacman -Qdt'    # list orphans
+alias pacro='paclo && sudo pacman -Rns $(pacman -Qtdq)' # remove orphans
+alias pacc='pacman -Scc'    # clean cache
+alias paclf='pacman -Ql'   # list files

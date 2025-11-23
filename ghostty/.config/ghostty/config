@@ -1,0 +1,16 @@
+font-family = Hack Nerd Font Mono
+font-size = 14
+
+theme = Rose Pine
+
+# background-opacity = 0.96
+# window-decoration = none
+window-padding-balance = true
+window-padding-x = 6
+window-padding-y = 6
+
+window-width=100
+window-height=30
+
+keybind = global:cmd+t=new_window
+quit-after-last-window-closed = false
