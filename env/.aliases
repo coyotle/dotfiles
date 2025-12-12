@@ -1,5 +1,7 @@
 alias sudo='sudo '
 
+alias cat='bat --plain --paging=never'
+
 alias sys='systemctl'
 
 alias k="kubectl"
@@ -8,6 +10,7 @@ alias hx='helix'
 alias c='clear'
 alias help='tldr'
 
+alias md='mkdir -p'
 alias rmd='rm -rf'
 alias {up,..}='cd ..'
 alias ...='cd ../..'
@@ -75,6 +78,10 @@ alias extr='extract '
 # System
 alias df="df -h"
 alias du="du -h"
+
+alias free="free -h"
+
+alias dropcache="echo 3 | sudo tee /proc/sys/vm/drop_caches"
 
 
 # pacman aliases
