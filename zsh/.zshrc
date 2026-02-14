@@ -89,3 +89,9 @@ take () {
 
 # Turso
 export PATH="$PATH:/home/sergey/.turso"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/mcli mcli
+
+# kubectl
+source ~/.kube/completion.zsh.inc
