@@ -18,6 +18,7 @@ alias ...='cd ../..'
 alias psa='ps auxf'
 
 # docker compose
+alias d='docker'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias dcu='docker compose up -d'
