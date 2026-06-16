@@ -1,64 +1,65 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "main", -- явно указываем новую ветку
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
+			{ "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
 			"windwp/nvim-ts-autotag",
 		},
-		config = function()
-			-- import nvim-treesitter plugin
-			local treesitter = require("nvim-treesitter.configs")
+		init = function()
+			-- 1. Установка парсеров (аналог ensure_installed)
+			local ensureInstalled = {
+				"regex",
+				"json",
+				"javascript",
+				"typescript",
+				"tsx",
+				"yaml",
+				"html",
+				"css",
+				"prisma",
+				"markdown",
+				"markdown_inline",
+				"svelte",
+				"graphql",
+				"bash",
+				"lua",
+				"vim",
+				"dockerfile",
+				"gitignore",
+				"query",
+			}
+			local alreadyInstalled = require("nvim-treesitter.config").get_installed()
+			local toInstall = vim.iter(ensureInstalled)
+				:filter(function(p)
+					return not vim.tbl_contains(alreadyInstalled, p)
+				end)
+				:totable()
+			if #toInstall > 0 then
+				require("nvim-treesitter").install(toInstall)
+			end
 
-			-- configure treesitter
-			treesitter.setup({ -- enable syntax highlighting
-				highlight = {
-					enable = true,
-				},
-				-- enable indentation
-				indent = { enable = true },
-				-- enable autotagging (w/ nvim-ts-autotag plugin)
-				autotag = {
-					enable = true,
-				},
-				-- ensure these language parsers are installed
-				ensure_installed = {
-					"regex",
-					"json",
-					"javascript",
-					"typescript",
-					"tsx",
-					"yaml",
-					"html",
-					"css",
-					"prisma",
-					"markdown",
-					"markdown_inline",
-					"svelte",
-					"graphql",
-					"bash",
-					"lua",
-					"vim",
-					"dockerfile",
-					"gitignore",
-					"query",
-				},
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "<C-space>",
-						node_incremental = "<C-space>",
-						scope_incremental = false,
-						node_decremental = "<bs>",
-					},
-				},
-				-- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
-				context_commentstring = {
-					enable = true,
-					enable_autocmd = false,
-				},
+			-- 2. Подсветка и отступы через FileType autocmd
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function()
+					pcall(vim.treesitter.start) -- подсветка синтаксиса
+					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				end,
 			})
 		end,
+		opts = {
+			-- incremental_selection остаётся здесь
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "<C-space>",
+					node_incremental = "<C-space>",
+					scope_incremental = false,
+					node_decremental = "<bs>",
+				},
+			},
+		},
 	},
 }
