@@ -3,7 +3,7 @@
 # =========================================================
 
 # Directory where plugins are stored
-ZPLUGINDIR="${ZDOTDIR:-$HOME/.config/zsh}/plugins"
+ZPLUGINDIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
 
 # Load a plugin from GitHub by cloning it if not present
 # Usage: _zplugin_load <github-user> <repo-name>
