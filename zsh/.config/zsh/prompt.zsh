@@ -8,4 +8,4 @@ FUNCNEST=100
 
 # Prompt engine: oh-my-posh with custom theme
 #eval "$(starship init zsh)"
-eval "$(oh-my-posh init zsh --config $ZDOTDIR/themes/amro.omp.json)"
+command -v oh-my-posh &>/dev/null && eval "$(oh-my-posh init zsh --config $ZDOTDIR/themes/amro.omp.json)"

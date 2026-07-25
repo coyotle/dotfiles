@@ -36,7 +36,7 @@ bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
 # Ctrl+F -> fzf file picker (no hidden files)
-bindkey '^F' fzf-file-widget
+(( $+widgets[fzf-file-widget] )) && bindkey '^F' fzf-file-widget
 
 # Ctrl+\ -> toggle autosuggestions (useful for screen recordings)
 bindkey '^\' autosuggest-toggle

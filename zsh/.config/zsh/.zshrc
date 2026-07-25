@@ -43,7 +43,7 @@ if [[ -f ~/.config/lf/icons ]]; then
 fi
 
 # Initialize zoxide
-eval "$(zoxide init --cmd cd zsh)"
+command -v zoxide &>/dev/null && eval "$(zoxide init --cmd cd zsh)"
 
 # =========================================================
 # Completion
@@ -98,11 +98,11 @@ if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
 fi
 
 
-eval "$(kubectl completion zsh)"
+command -v kubectl &>/dev/null && eval "$(kubectl completion zsh)"
 
-eval "$(herdr completion zsh)"
+command -v herdr &>/dev/null && eval "$(herdr completion zsh)"
 
-eval "$(arcane-cli completion zsh)"
+command -v arcane-cli &>/dev/null && eval "$(arcane-cli completion zsh)"
 
 # =========================================================
 # Modular Config Files
