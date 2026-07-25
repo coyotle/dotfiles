@@ -37,6 +37,19 @@
       "type": "prompt"
     },
     {
+      "alignment": "right",
+      "type": "prompt",
+      "segments": [
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#ffd43b",
+          "template": " {{.Venv}} ({{ .Full }})"
+        }
+      ]
+    },
+
+    {
       "alignment": "left",
       "newline": true,
       "segments": [
