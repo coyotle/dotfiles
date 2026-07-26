@@ -51,11 +51,10 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' sort false
 
 # Make completion case-insensitive
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-#export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
