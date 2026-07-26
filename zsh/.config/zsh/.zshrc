@@ -1,15 +1,3 @@
-# Powerful but minimal zsh configuration
-# Author: Radley E. Sidwell-Lewis
-# GitHub: https://www.github.com/radleylewis/zsh
-#
-# Uses:
-#   Plugins:      fast-syntax-highlighting, zsh-autosuggestions,
-#                 zsh-history-substring-search, zsh-vi-mode
-#   Prompt:       starship
-#   Navigation:   zoxide, fzf, fd
-#   CLI tools:    eza, bat, nvim, ripgrep
-#   Node:         nvm
-
 # =========================================================
 # History
 # =========================================================
@@ -105,6 +93,9 @@ command -v kubectl &>/dev/null && eval "$(kubectl completion zsh)"
 command -v herdr &>/dev/null && eval "$(herdr completion zsh)"
 
 command -v arcane-cli &>/dev/null && eval "$(arcane-cli completion zsh)"
+
+# rustfs cli
+command -v rc &>/dev/null && eval "$(rc completions zsh)"
 
 # =========================================================
 # Modular Config Files

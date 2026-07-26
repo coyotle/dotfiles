@@ -40,6 +40,7 @@ alias c='clear'
 #alias grep='rg --color=auto'
 alias diff='diff --color=auto'
 alias df='df -h'
+alias free='free -h'
 
 # =========================================================
 # Navigation
@@ -94,11 +95,14 @@ alias k='kubectl'
 # Tools
 # =========================================================
 
+alias dropcache='echo 3 | sudo tee /proc/sys/vm/drop_caches'
+
+# Create directory and jump to it
 take () {
     mkdir -p $@ && cd ${@:$#}
 }
 
-# Archives
+# Extract archives
 function extract {
   if [ -z "$1" ]; then
     echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
