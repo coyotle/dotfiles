@@ -5,9 +5,6 @@
 # Use '*?_-.[]~=/&;!#$%^(){}<>'  as a stop chars for word deleting
 WORDCHARS=
 
-# Use emacs key bindings
-#bindkey -e
-
 # Home
 bindkey  "^[[F"   end-of-line
 
@@ -47,7 +44,12 @@ bindkey '^[[1;5D' backward-word
 # Ctrl+\ -> toggle autosuggestions (useful for screen recordings)
 bindkey '^\' autosuggest-toggle
 
-# Up/Down -> history search by substring (^[[A/^[[B are up/down arrow escape codes)
-bindkey '^[[A' history-beginning-search-backward
-bindkey '^[[B' history-beginning-search-forward
+# Up/Down -> history search 
+autoload -Uz up-line-or-beginning-search 
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
+bindkey '^[[A' up-line-or-beginning-search
+
+bindkey '^[[B' down-line-or-beginning-search
