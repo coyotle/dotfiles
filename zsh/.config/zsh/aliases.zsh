@@ -33,7 +33,7 @@ alias cat='bat --plain --paging=never'
 # Clear screen
 alias c='clear'
 
-# =========================================================
+# =======================
 # Core utilities
 # =========================================================
 
@@ -47,6 +47,8 @@ alias free='free -h'
 # =========================================================
 
 alias -- -='cd -'  # -- prevents - being parsed as a flag; cd - jumps to previous directory
+alias ..='cd ..'
+alias ...='cd ../..'
 
 lf() { # zsh follow lf navigation
     tmp=$(mktemp)
@@ -87,6 +89,7 @@ alias dcd='docker compose down'    # Stop and remove services
 alias dcp='docker compose pull'    # Pull latest images
 alias dcr='docker compose restart' # Restart services
 alias dce='docker compose exec'    # Execute command in running service
+alias dcl='docker compose logs'    # 
 
 # ---- Kubernetes ----
 alias k='kubectl'

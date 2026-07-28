@@ -8,6 +8,12 @@ WORDCHARS=
 # Use emacs key bindings
 #bindkey -e
 
+# Home
+bindkey  "^[[F"   end-of-line
+
+# End
+bindkey  "^[[H"   beginning-of-line
+
 # [Backspace] - delete backward
 bindkey '^?' backward-delete-char
 
@@ -42,6 +48,6 @@ bindkey '^[[1;5D' backward-word
 bindkey '^\' autosuggest-toggle
 
 # Up/Down -> history search by substring (^[[A/^[[B are up/down arrow escape codes)
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
 
