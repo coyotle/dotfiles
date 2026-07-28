@@ -3,9 +3,8 @@ font-size = 14
 
 theme = GitLab Dark
 
-# background-opacity = 0.96
-# background-blur = true
-# window-decoration = none
+background-opacity = 1
+
 window-padding-balance = true
 window-padding-x = 6
 window-padding-y = 6
@@ -17,4 +16,5 @@ keybind = global:cmd+t=new_window
 keybind = ctrl+k=clear_screen
 keybind = ctrl+shift+page_up=move_tab:-1
 keybind = ctrl+shift+page_down=move_tab:1
+
 quit-after-last-window-closed = false
