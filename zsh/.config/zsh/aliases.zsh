@@ -83,6 +83,7 @@ alias dps='docker ps'              # List running containers
 alias dpsa='docker ps -a'          # List all containers (including stopped)
 alias dcu='docker compose up -d'   # Start services in background
 alias dcd='docker compose down'    # Stop and remove services
+alias dcs='docker compose stop'    # Stop services
 alias dcp='docker compose pull'    # Pull latest images
 alias dcr='docker compose restart' # Restart services
 alias dce='docker compose exec'    # Execute command in running service
