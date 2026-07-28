@@ -20,9 +20,6 @@ alias la='eza -a --icons --color=always --group-directories-first --git'
 # Short format with file type indicators
 alias l='eza -F --icons --color=always --group-directories-first --git'
 
-# List only hidden files
-alias l.='eza -a | egrep "^\."'
-
 # Reuse ls completions for eza (avoids defining a separate completion function)
 compdef eza=ls
 
@@ -99,6 +96,8 @@ alias k='kubectl'
 # =========================================================
 
 alias dropcache='echo 3 | sudo tee /proc/sys/vm/drop_caches'
+
+alias md='mkdir -p'
 
 # Create directory and jump to it
 take () {
