@@ -1,6 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
+	--branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -21,11 +21,11 @@ return {
 					},
 				},
 			},
-			--pickers = {
-			--	find_files = {
-			--		theme = "dropdown",
-			--	},
-			--},
+			-- pickers = {
+			-- 	find_files = {
+			-- 		theme = "dropdown",
+			-- 	},
+			-- },
 		})
 
 		telescope.load_extension("fzf")
