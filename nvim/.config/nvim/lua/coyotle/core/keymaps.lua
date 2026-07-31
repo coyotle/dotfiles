@@ -32,7 +32,7 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 -- buffers
-keymap.set("n", "<leader>bo", ":new<CR>") -- open new buffer
+keymap.set("n", "<leader>bo", ":enew<CR>") -- open new buffer
 --keymap.set("n", "<leader>bd", ":bdelete<CR>") -- close current buffer
 keymap.set("n", "<leader>bd", ":bp<CR>:bd#<CR>") -- close current buffer
 keymap.set("n", "<leader>bn", ":bn<CR>") --  go to next buffer
