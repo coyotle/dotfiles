@@ -30,6 +30,8 @@ alias cat='bat --plain --paging=never'
 # Clear screen
 alias c='clear'
 
+alias help='tldr'
+
 # =======================
 # Core utilities
 # =========================================================
