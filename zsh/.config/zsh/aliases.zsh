@@ -100,7 +100,11 @@ alias k='kubectl'
 
 alias dropcache='echo 3 | sudo tee /proc/sys/vm/drop_caches'
 
+# create dirs reqursive
 alias md='mkdir -p'
+
+# rm dirs recursive
+alias rmd='rmdir -rf'
 
 # Create directory and jump to it
 take () {
